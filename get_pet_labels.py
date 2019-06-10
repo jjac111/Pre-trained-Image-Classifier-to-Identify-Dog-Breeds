@@ -42,10 +42,17 @@ def get_pet_labels(image_dir):
     """
     results_dic = {}
     filenames = listdir(image_dir)
+    for file in filenames:
+        if file[0] == ".":
+            filenames.remove(file)
     pet_image_labels = []
     for s in filenames:
         string_parts = s.split("_")
-        string_parts.pop()
+        string_parts[-1] = string_parts[-1][0:string_parts[-1].find(".")]
+        print(string_parts)
+        for part in string_parts:
+            if not part.isalpha():
+                string_parts.remove(part)
         label = " ".join(string_parts).lower().strip()
         pet_image_labels.append(label)
     for filename, label in zip(filenames, pet_image_labels):
