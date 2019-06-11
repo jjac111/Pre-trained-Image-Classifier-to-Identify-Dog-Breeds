@@ -85,5 +85,5 @@ def print_results(results_dic, results_stats_dic, model,
         for key in results_dic:
             if sum(results_dic[key][3:]) == 2 and results_dic[key][2] == 0:
                 print("Breed misclassification:\n\tPet label: " + str(results_dic[key][0]) 
-                      + "Classifier label: " + str(results_dic[key][1]))
+                      + "\tClassifier label: " + str(results_dic[key][1]))
         print(" ")
